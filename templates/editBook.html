@@ -1,0 +1,15 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %} Edit Book {% endblock %}
+
+
+
+{% block content %}
+    <p>Book Title: {{ requestedBook.title }}</p>
+    <p>Current Rating: {{ requestedBook.rating }}</p>
+    <form method="post" action="{{ url_for('editBook') }}">
+        <input value="{{ requestedBook.id }}" name="BookId" hidden="hidden">
+        <input type="number", name="newRating">
+        <input type="submit", value="Change Rating">
+    </form>
+{% endblock %}
